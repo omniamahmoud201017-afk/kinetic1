@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الوحدة 1: مفهوم كائنات التعلم الرقمية</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+:root{--bg:#eaf1f4;--surface:#fff;--text:#14262e;--muted:#52666f;--accent:#0f766e;--accent-ink:#fff;--sel:#b45309;--ok:#166534;--okbg:#dcf5e5;--bad:#b3261e;--badbg:#fde8e6;--line:#c3d1d8;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c21;--surface:#182b32;--text:#e6f0f3;--muted:#9bb0b8;--accent:#2dd4bf;--accent-ink:#06201d;--sel:#fbbf24;--ok:#86efac;--okbg:#12361f;--bad:#fca5a5;--badbg:#3b1a18;--line:#2f4852;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1c21;--surface:#182b32;--text:#e6f0f3;--muted:#9bb0b8;--accent:#2dd4bf;--accent-ink:#06201d;--sel:#fbbf24;--ok:#86efac;--okbg:#12361f;--bad:#fca5a5;--badbg:#3b1a18;--line:#2f4852;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7;font-size:17px}
+main{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.7rem;font-weight:800;margin:.2em 0 .1em;line-height:1.3}
+h2{font-size:1.25rem;font-weight:700;margin:0 0 .3em}
+p{margin:.2em 0 .8em;color:var(--muted);max-width:68ch}
+.tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;border-radius:10px;border:2px solid var(--accent);background:transparent;color:var(--text);padding:8px 16px;min-height:44px}
+button[aria-selected="true"],button.primary{background:var(--accent);color:var(--accent-ink);font-weight:700}
+button:focus-visible,.card:focus-visible,.slot:focus-visible,.bin:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+section[hidden]{display:none}
+.bank,.pool{display:flex;flex-wrap:wrap;gap:10px;padding:12px;border:2px dashed var(--line);border-radius:12px;min-height:72px;margin-bottom:14px}
+.card{background:var(--surface);border:2px solid var(--line);border-inline-start:8px solid var(--accent);border-radius:10px;padding:10px 12px;cursor:grab;user-select:none;touch-action:manipulation;flex:1 1 230px;max-width:100%}
+.card b{display:block}
+.card small{color:var(--muted);display:block}
+.card.sel{border-color:var(--sel);border-inline-start-color:var(--sel);box-shadow:0 0 0 3px var(--sel)}
+.card.ok{background:var(--okbg);border-color:var(--ok);border-inline-start-color:var(--ok);cursor:default}
+.card.bad{background:var(--badbg);border-color:var(--bad);border-inline-start-color:var(--bad);animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@media (prefers-reduced-motion:reduce){.card.bad{animation:none}}
+.bins{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bin,.slot{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:10px;min-height:120px}
+.bin h3,.slot h3{margin:0 0 8px;font-size:1.05rem}
+.bin[data-bin="yes"]{border-color:var(--ok)}
+.bin[data-bin="no"]{border-color:var(--bad)}
+.items{display:flex;flex-direction:column;gap:8px}
+.slots{display:grid;gap:10px;margin-bottom:14px}
+.slot{min-height:0;display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center}
+.num{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:800;font-size:1.2rem}
+.slot .card{margin:0}
+.slot .hint{color:var(--muted);font-size:.95rem}
+.msg{min-height:2.2em;font-weight:700;margin:8px 0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:700}
+@media (max-width:560px){.bins{grid-template-columns:1fr}}
+.chip{display:inline-block;padding:2px 12px;border-radius:99px;border:2px solid var(--accent);font-weight:700;font-size:.9rem}
+.recall{background:var(--surface);border:2px solid var(--accent);border-radius:12px;padding:10px 14px;margin:10px 0;font-weight:700}
+.task{background:var(--surface);border:2px dashed var(--sel);border-radius:12px;padding:12px 16px;margin-top:26px}
+.task h2{margin-top:0}
+body.weak{font-size:19px}.weak .card{padding:14px 14px}
+.bins{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+</style>
+</head>
+<body class="weak">
+<main>
+<span class="chip">المتعلم الحركي: تحصيل ضعيف</span>
+<h1>الوحدة 2: رتّب مراحل ADDIE</h1>
+<p>اسحب البطاقة إلى مكانها. وإن كنت على الجوال، المس البطاقة ثم المس المكان الذي تريد وضعها فيه.</p>
+<div class="recall">تذكّر: نبدأ بمعرفة المتعلمين، وننتهي بالسؤال: هل نجح الكائن؟</div>
+<h2>رتّب المراحل الخمس</h2>
+<div class="pool" id="pool" aria-label="المراحل"></div>
+<div class="slots" id="slots"></div>
+<div class="row"><button class="primary" id="check">تحقق</button><button id="reset">ابدأ من جديد</button></div>
+<div class="msg" id="msg" role="status" aria-live="polite"></div>
+<div class="task"><h2>مهمة بيدك</h2><p>ضع خمس ورقات على الأرض بالترتيب، على كل ورقة اسم مرحلة. قف عند كل ورقة وقل بصوتك ماذا نفعل في هذه المرحلة، ثم صوّر نفسك أو صوّر الورقات وانشرها على Padlet بالوسم <b>#وحدة2 #نشاط_تفاعلي #مبتدئ</b>.</p></div>
+</main>
+<script>(function(){
+var CFG={"items": [["التحليل (A)", "نحدد الجمهور والأهداف والاحتياجات", 1], ["التصميم (D)", "نكتب الأهداف ونخطط اللوحة القصصية", 2], ["التطوير (D)", "نبني المحتوى والوسائط والأنشطة", 3], ["التنفيذ (I)", "نطبّق الكائن مع المتعلمين", 4], ["التقويم (E)", "نقيس النتائج ونحسّن الكائن", 5]], "hints": ["نبدأ بمعرفة من هم المتعلمون وماذا نريد منهم.", "نرسم خطة الدرس قبل بنائه.", "نبني الدرس فعلًا.", "نجرّبه مع المتعلمين.", "نسأل: هل نجح؟ وكيف نحسّنه؟"], "mode": "weak"};
+var $=function(s,r){return (r||document).querySelector(s)};
+var cur=null;
+function shuffle(a){var b,s;do{b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t}s=b.every(function(x,k){return x===a[k]})}while(s);return b}
+function clearSel(){document.querySelectorAll(".card.sel").forEach(function(c){c.classList.remove("sel")});cur=null}
+function makeCard(html,data){
+  var c=document.createElement("div");c.className="card";c.draggable=true;c.tabIndex=0;c.innerHTML=html;
+  Object.keys(data).forEach(function(k){c.dataset[k]=data[k]});
+  c.addEventListener("dragstart",function(e){if(c.classList.contains("ok")){e.preventDefault();return}cur=c;e.dataTransfer.setData("text/plain","card")});
+  function pick(){if(c.classList.contains("ok"))return;var was=cur===c;clearSel();if(!was){c.classList.add("sel");cur=c}}
+  c.addEventListener("click",pick);
+  c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();pick()}});
+  return c;
+}
+function wire(t,fn){
+  t.addEventListener("dragover",function(e){e.preventDefault()});
+  t.addEventListener("drop",function(e){e.preventDefault();if(cur)fn(cur,t)});
+  t.addEventListener("click",function(e){var cd=e.target.closest(".card");if(cd&&!cd.classList.contains("ok"))return;if(cur)fn(cur,t)});
+  t.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&e.target===t&&cur){e.preventDefault();fn(cur,t)}});
+}
+
+var C=CFG,W=C.mode==="weak";
+function hint(i){return "<span class=\"hint\">"+(W?C.hints[i-1]:"ضع المرحلة هنا")+"</span>"}
+function build(){
+ clearSel();var pool=$("#pool"),sl=$("#slots");pool.innerHTML="";sl.innerHTML="";$("#msg").textContent="";
+ for(var i=1;i<=5;i++){var s=document.createElement("div");s.className="slot";s.tabIndex=0;s.dataset.pos=i;
+  s.innerHTML="<div class=\"num\">"+i+"</div><div class=\"body\">"+hint(i)+"</div>";wire(s,place);sl.appendChild(s)}
+ shuffle(C.items).forEach(function(d){pool.appendChild(makeCard("<b>"+d[0]+"</b><small>"+d[1]+"</small>",{order:d[2]}))})}
+function place(card,t){
+ var pool=$("#pool");
+ if(t.classList.contains("slot")){var body=t.querySelector(".body"),old=body.querySelector(".card");
+  if(old&&old!==card){pool.appendChild(old);old.classList.remove("ok","bad")}
+  var h=body.querySelector(".hint");if(h)h.remove();body.appendChild(card)}else{pool.appendChild(card)}
+ card.classList.remove("ok","bad");
+ document.querySelectorAll(".slot").forEach(function(s){var b=s.querySelector(".body");if(!b.querySelector(".card")&&!b.querySelector(".hint"))b.innerHTML=hint(+s.dataset.pos)});
+ clearSel();$("#msg").textContent=""}
+wire($("#pool"),place);
+$("#check").onclick=function(){var r=0,f=0;
+ document.querySelectorAll(".slot").forEach(function(s){var c=s.querySelector(".card");if(!c)return;f++;var g=+c.dataset.order===+s.dataset.pos;c.classList.toggle("ok",g);c.classList.toggle("bad",!g);if(g)r++});
+ $("#msg").textContent=r===5?"ممتاز! الترتيب كله صحيح.":(f<5?"لم تضع كل المراحل بعد. صحيح حتى الآن: "+r+" من "+f:(W?"صحيح: "+r+" من 5. اقرأ التلميح بجانب كل رقم وغيّر البطاقات الحمراء.":"صحيح: "+r+" من 5. أعد ترتيب البطاقات الحمراء."))};
+$("#reset").onclick=build;build();
+})();</script>
+</body>
+</html>
